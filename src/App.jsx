@@ -15,69 +15,69 @@ import {
 import './App.css';
 
 const navItems = [
-  { href: '#problem', label: 'The problem' },
-  { href: '#response', label: 'Our response' },
+  { href: '#problem', label: 'Le problème' },
+  { href: '#response', label: 'Notre réponse' },
   { href: '#open-source', label: 'Open source' },
-  { href: '#team', label: 'Team' },
+  { href: '#team', label: 'Équipe' },
   { href: '#contact', label: 'Contact' },
 ];
 
 const problemSignals = [
   {
-    title: 'Exposure grows quietly',
-    copy: 'Shared inboxes, donation platforms, volunteer spreadsheets, and field messaging become critical infrastructure long before anyone names them that way.',
+    title: "L'exposition croît silencieusement",
+    copy: "Boîtes mail partagées, plateformes de dons, tableurs bénévoles et messageries terrain deviennent une infrastructure critique bien avant que quiconque ne les nomme ainsi.",
   },
   {
-    title: 'Attackers exploit urgency',
-    copy: 'Humanitarian work moves fast. Phishing, impersonation, and account takeovers are designed to land exactly when teams are stretched thin.',
+    title: "Les attaquants exploitent l'urgence",
+    copy: "Le travail humanitaire va vite. Phishing, usurpation d'identité et prises de contrôle de comptes sont conçus pour frapper précisément quand les équipes sont à bout de ressources.",
   },
   {
-    title: 'Recovery steals mission time',
-    copy: 'A compromised account can freeze grants, silence helplines, expose vulnerable people, and pull staff away from the work only they can do.',
+    title: "La récupération vole du temps de mission",
+    copy: "Un compte compromis peut bloquer des subventions, couper des lignes d'aide, exposer des personnes vulnérables et éloigner le personnel du travail que seul il peut accomplir.",
   },
 ];
 
 const responsePillars = [
   {
     icon: ShieldCheck,
-    title: 'Rapid stabilization',
-    copy: 'We help NGOs lock down identities, recover access, preserve evidence, and make the next decision with a calm incident rhythm.',
+    title: 'Stabilisation rapide',
+    copy: "Nous aidons les ONG à verrouiller les identités, récupérer les accès, préserver les preuves et prendre la prochaine décision avec un rythme d'incident serein.",
   },
   {
     icon: KeyRound,
-    title: 'Practical hardening',
-    copy: 'We turn security basics into repeatable habits: passkeys, admin boundaries, device hygiene, backups, and supplier checks.',
+    title: 'Renforcement pratique',
+    copy: "Nous transformons les bases de la sécurité en habitudes reproductibles : clés d'accès, périmètres d'administration, hygiène des appareils, sauvegardes et contrôle des prestataires.",
   },
   {
     icon: Handshake,
-    title: 'Trusted accompaniment',
-    copy: 'We pair technical response with plain-language guidance for boards, program leads, finance teams, and field coordinators.',
+    title: 'Accompagnement de confiance',
+    copy: "Nous associons la réponse technique à des conseils en langage clair pour les conseils d'administration, les responsables de programme, les équipes finance et les coordinateurs terrain.",
   },
 ];
 
 const infrastructure = [
-  'Threat-informed baselines for small NGO stacks',
-  'Incident forms that protect sensitive context',
-  'Deployment recipes for secure intake and reporting',
-  'Reusable policy templates written for non-specialists',
+  'Référentiels de sécurité adaptés aux petites structures ONG',
+  "Formulaires d'incident protégeant les contextes sensibles",
+  'Recettes de déploiement pour une collecte et un reporting sécurisés',
+  'Modèles de politique réutilisables rédigés pour les non-spécialistes',
 ];
 
 const maintainers = [
   {
-    role: 'Field security lead',
-    focus: 'Incident triage, responder coordination, and protection planning for teams working under pressure.',
+    role: 'Responsable sécurité terrain',
+    focus: "Triage des incidents, coordination des intervenants et planification de la protection pour les équipes sous pression.",
   },
   {
-    role: 'Infrastructure maintainer',
-    focus: 'Open-source deployment patterns, secure defaults, uptime, backups, and documentation that survives turnover.',
+    role: 'Mainteneur infrastructure',
+    focus: "Schémas de déploiement open source, paramètres sécurisés par défaut, disponibilité, sauvegardes et documentation qui résiste aux transitions.",
   },
   {
-    role: 'Digital care strategist',
-    focus: 'Training, governance, and board-level decisions that translate technical risk into operational action.',
+    role: 'Stratège numérique',
+    focus: "Formation, gouvernance et décisions au niveau du conseil qui traduisent le risque technique en action opérationnelle.",
   },
   {
-    role: 'Community analyst',
-    focus: 'Abuse pattern tracking, platform escalation, and early warnings for campaigns targeting civil society.',
+    role: 'Analyste communautaire',
+    focus: "Suivi des schémas d'abus, escalade auprès des plateformes et alertes précoces pour les campagnes ciblant la société civile.",
   },
 ];
 
@@ -85,13 +85,13 @@ function handleContactSubmit(event) {
   event.preventDefault();
 
   const form = new FormData(event.currentTarget);
-  const organization = form.get('organization') || 'New NGO request';
-  const need = form.get('need') || 'We need support from ONGarde.';
-  const contact = form.get('contact') || 'No return contact provided.';
+  const organization = form.get('organization') || 'Nouvelle demande ONG';
+  const need = form.get('need') || "Nous avons besoin du soutien d'ONGarde.";
+  const contact = form.get('contact') || 'Aucun contact de retour fourni.';
 
-  const subject = encodeURIComponent(`ONGarde intake: ${organization}`);
+  const subject = encodeURIComponent(`ONGarde — demande : ${organization}`);
   const body = encodeURIComponent(
-    `Organization: ${organization}\nContact: ${contact}\n\nWhat is happening:\n${need}`
+    `Organisation : ${organization}\nContact : ${contact}\n\nSituation :\n${need}`
   );
 
   window.location.href = `mailto:intake@ongarde.org?subject=${subject}&body=${body}`;
@@ -100,13 +100,13 @@ function handleContactSubmit(event) {
 function App() {
   return (
     <div className="site-shell" id="top">
-      <header className="site-header" aria-label="ONGarde navigation">
-        <a className="brand" href="#top" aria-label="ONGarde home">
+      <header className="site-header" aria-label="Navigation ONGarde">
+        <a className="brand" href="#top" aria-label="Accueil ONGarde">
           <span className="brand-mark" aria-hidden="true">O</span>
           <span>ONGarde</span>
         </a>
 
-        <nav className="site-nav" aria-label="Main navigation">
+        <nav className="site-nav" aria-label="Navigation principale">
           {navItems.map((item) => (
             <a key={item.href} href={item.href}>
               {item.label}
@@ -114,9 +114,9 @@ function App() {
           ))}
         </nav>
 
-        <a className="header-action" href="#contact" aria-label="Open contact intake section">
+        <a className="header-action" href="#contact" aria-label="Accéder au formulaire de contact">
           <Mail size={16} aria-hidden="true" />
-          Intake
+          Contact
         </a>
       </header>
 
@@ -125,35 +125,43 @@ function App() {
           <img
             className="hero-image"
             src="/ongarde/ngo-cyber-response.png"
-            alt="Black-and-white editorial scene of nonprofit responders coordinating a cybersecurity incident"
+            alt="Scène éditoriale en noir et blanc de répondants associatifs coordonnant un incident de cybersécurité"
           />
           <div className="hero-overlay" aria-hidden="true" />
 
           <div className="hero-content">
-            <p className="eyebrow">Cyber resilience for civil society</p>
+            <p className="eyebrow">Veiller sur ceux qui changent le monde.</p>
             <h1 id="hero-title">ONGarde</h1>
             <p className="hero-copy">
-              Independent digital protection for NGOs, mutual aid groups, and
-              community defenders who need secure operations without enterprise
-              complexity.
+              Parce que les organisations éthiques, solidaires et engagées sont souvent les plus
+              vulnérables face aux menaces numériques, ONGarde se tient à leurs côtés. Véritable
+              vigile du cyberespace, notre collectif agit comme un bouclier pour protéger les
+              structures à impact positif, afin qu'elles puissent se concentrer sur leur mission
+              en toute sécurité.
+            </p>
+            <p className="hero-copy">
+              Ancrés entre Lyon et notre filiale de Marseille, nous sommes animés par un esprit
+              profond de communauté et d'entraide. Nous refusons de laisser la cybercriminalité
+              freiner ceux qui œuvrent pour le bien commun. Nous sommes là pour faire bouger les
+              choses, avec un impact réel et mesurable sur le terrain.
             </p>
 
-            <div className="hero-actions" aria-label="Primary actions">
+            <div className="hero-actions" aria-label="Actions principales">
               <a className="button button-primary" href="#contact">
                 <Mail size={18} aria-hidden="true" />
-                Request support
+                Demander de l'aide
               </a>
               <a className="button button-secondary" href="#open-source">
                 <Github size={18} aria-hidden="true" />
-                Explore the stack
+                Explorer les outils
               </a>
             </div>
           </div>
 
-          <div className="hero-meta" aria-label="ONGarde support areas">
-            <span>Incident support</span>
-            <span>Secure operations</span>
-            <span>Open-source tooling</span>
+          <div className="hero-meta" aria-label="Domaines d'intervention ONGarde">
+            <span>Support incidents</span>
+            <span>Opérations sécurisées</span>
+            <span>Outils open source</span>
           </div>
         </section>
 
@@ -162,18 +170,18 @@ function App() {
             <div className="section-intro">
               <div className="section-marker">
                 <span>01</span>
-                <p>The problem</p>
+                <p>Le problème</p>
               </div>
               <div>
                 <h2 id="problem-title">
-                  Small teams carry enterprise risk with community-sized budgets.
+                  De petites équipes portent des risques d'entreprise avec des budgets associatifs.
                 </h2>
                 <p className="lead">
-                  NGOs often become targets because they hold trusted access,
-                  sensitive stories, financial records, and networks of people
-                  at risk. The danger is real, but the available security advice
-                  is too often expensive, abstract, or written for companies with
-                  full-time security teams.
+                  Les ONG deviennent souvent des cibles parce qu'elles détiennent des accès de
+                  confiance, des témoignages sensibles, des données financières et des réseaux de
+                  personnes exposées. Le danger est réel, mais les conseils de sécurité disponibles
+                  sont trop souvent coûteux, abstraits ou rédigés pour des entreprises disposant
+                  d'équipes sécurité à temps plein.
                 </p>
               </div>
             </div>
@@ -195,17 +203,17 @@ function App() {
             <div className="section-intro">
               <div className="section-marker">
                 <span>02</span>
-                <p>Our response</p>
+                <p>Notre réponse</p>
               </div>
               <div>
                 <h2 id="response-title">
-                  We make protection usable at the exact moment it is needed.
+                  Nous rendons la protection opérationnelle au moment précis où elle est nécessaire.
                 </h2>
                 <p className="lead">
-                  ONGarde combines incident response, security coaching, and
-                  implementation support. We work beside staff and volunteers,
-                  then leave behind the checklists, configurations, and
-                  confidence to keep going.
+                  ONGarde combine réponse aux incidents, coaching sécurité et accompagnement à la
+                  mise en œuvre. Nous travaillons aux côtés des équipes et des bénévoles, puis
+                  laissons derrière nous les checklists, les configurations et la confiance pour
+                  continuer.
                 </p>
               </div>
             </div>
@@ -227,16 +235,16 @@ function App() {
             <div>
               <div className="section-marker">
                 <span>03</span>
-                <p>Open-source infrastructure</p>
+                <p>Infrastructure open source</p>
               </div>
               <h2 id="open-source-title">
-                A shared security commons for organizations that cannot wait.
+                Un patrimoine de sécurité partagé pour les organisations qui ne peuvent pas attendre.
               </h2>
               <p className="lead">
-                We publish the repeatable pieces: hardening guides, response
-                workflows, secure intake patterns, and lightweight monitoring
-                recipes. Every component is designed to be inspected, forked, and
-                run by resource-constrained teams.
+                Nous publions les éléments reproductibles : guides de renforcement, workflows de
+                réponse, schémas de collecte sécurisée et recettes de supervision légères. Chaque
+                composant est conçu pour être inspecté, forké et déployé par des équipes à
+                ressources limitées.
               </p>
 
               <ul className="check-list">
@@ -249,7 +257,7 @@ function App() {
               </ul>
             </div>
 
-            <div className="code-panel" aria-label="Open-source stack example">
+            <div className="code-panel" aria-label="Exemple de stack open source">
               <div className="code-panel-bar">
                 <span />
                 <span />
@@ -278,17 +286,17 @@ function App() {
             <div className="section-intro">
               <div className="section-marker">
                 <span>04</span>
-                <p>Team</p>
+                <p>Équipe</p>
               </div>
               <div>
                 <h2 id="team-title">
-                  A compact response team built around trust and continuity.
+                  Une équipe de réponse resserrée, fondée sur la confiance et la continuité.
                 </h2>
                 <p className="lead">
-                  ONGarde brings together security engineers, civil society
-                  operators, trainers, and maintainers. We are intentionally
-                  small, so every engagement has context, accountability, and a
-                  named path from first call to follow-up.
+                  ONGarde réunit des ingénieurs sécurité, des opérateurs de la société civile, des
+                  formateurs et des mainteneurs. Nous sommes intentionnellement petits, pour que
+                  chaque intervention ait du contexte, de la responsabilité et un chemin nommé du
+                  premier appel au suivi.
                 </p>
               </div>
             </div>
@@ -312,48 +320,48 @@ function App() {
                 <span>05</span>
                 <p>Contact</p>
               </div>
-              <h2 id="contact-title">Start with the situation. We will help sort the next step.</h2>
+              <h2 id="contact-title">Décrivez la situation. Nous vous aiderons à trouver la prochaine étape.</h2>
               <p className="lead">
-                For urgent incidents, include only what is safe to share by
-                email. We can move to a safer channel after the first exchange.
+                Pour les incidents urgents, ne partagez que ce qui est sûr d'envoyer par e-mail.
+                Nous pourrons basculer vers un canal plus sécurisé après le premier échange.
               </p>
 
-              <div className="contact-methods" aria-label="Contact methods">
+              <div className="contact-methods" aria-label="Moyens de contact">
                 <a href="mailto:intake@ongarde.org">
                   <Mail size={20} aria-hidden="true" />
                   intake@ongarde.org
                 </a>
                 <a href="#open-source">
                   <Braces size={20} aria-hidden="true" />
-                  Open-source kit
+                  Kit open source
                 </a>
                 <a href="#response">
                   <Server size={20} aria-hidden="true" />
-                  Incident readiness
+                  Préparation aux incidents
                 </a>
               </div>
             </div>
 
             <form className="contact-form" onSubmit={handleContactSubmit}>
               <label>
-                Organization
-                <input name="organization" type="text" placeholder="Community Aid Network" />
+                Organisation
+                <input name="organization" type="text" placeholder="Réseau d'entraide local" />
               </label>
               <label>
-                Return contact
-                <input name="contact" type="text" placeholder="Name, email, or secure channel" />
+                Votre contact
+                <input name="contact" type="text" placeholder="Nom, e-mail ou canal sécurisé" />
               </label>
               <label>
-                What is happening?
+                Que se passe-t-il ?
                 <textarea
                   name="need"
                   rows="5"
-                  placeholder="A short, non-sensitive summary is enough."
+                  placeholder="Un résumé court et non sensible suffit."
                 />
               </label>
               <button className="button button-primary" type="submit">
                 <ArrowRight size={18} aria-hidden="true" />
-                Open email draft
+                Envoyer par e-mail
               </button>
             </form>
           </div>
@@ -362,7 +370,7 @@ function App() {
 
       <footer className="site-footer">
         <p>ONGarde</p>
-        <p>Original black-and-white cybersecurity support for NGOs.</p>
+        <p>Cybersécurité open source au service des ONG.</p>
       </footer>
     </div>
   );
